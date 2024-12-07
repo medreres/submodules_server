@@ -1,9 +1,22 @@
 import express from 'express'
-import { GetUserByIdSchema } from '@schemas';
+import { GetMeOutputSchema, GetUserByIdSchema } from '@schemas';
 const app = express();
 const port = 4000;
 
-// Define the GET /products/{productId} route
+app.get('/users/me', (_req, res) => {
+    const response = {
+        id: 1,
+        firstName: "Max",
+        lastName: "Pryhoda",
+        age: 26
+    }
+    
+    console.log('response', response)
+
+    res.json(GetMeOutputSchema.parse(response)).send()
+});
+
+
 app.get('/users/:id', (req, res) => {
     const { id } = GetUserByIdSchema.parse(req.params)
 
@@ -12,6 +25,7 @@ app.get('/users/:id', (req, res) => {
         firstName: "Max"
     }).send()
 });
+
 
 // Start the server
 app.listen(port, () => {
