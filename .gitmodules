@@ -1,3 +1,6 @@
 [submodule "packages/schemas"]
 	path = packages/schemas
 	url = https://github.com/medreres/schemas
+[submodule "packages/config"]
+	path = packages/config
+	url = https://github.com/medreres/submodules_config
