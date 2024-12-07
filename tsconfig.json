@@ -1,9 +1,14 @@
-{ 
+{
   "extends": "./packages/config/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
       "@schemas": ["./packages/schemas/src/index.ts"],
-    }                                 
-  }
+    },
+    "outDir": "dist",
+    "types": ["vitest/globals"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
