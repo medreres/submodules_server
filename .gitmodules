@@ -1,0 +1,3 @@
+[submodule "packages/schemas"]
+	path = packages/schemas
+	url = https://github.com/medreres/schemas
