@@ -1,17 +1,16 @@
 import express from 'express'
+import { GetUserByIdSchema } from '@schemas';
 const app = express();
 const port = 4000;
 
-
 // Define the GET /products/{productId} route
-app.get('/products/:productId', (req, res) => {
-  console.debug(`getting product ${req.params.productId}`)
-    const productId = req.params.productId;
-    const product = {
-        id: productId,
-        name: `${productId} name`
-    };
-    res.json(product);
+app.get('/users/:id', (req, res) => {
+    const {id} = GetUserByIdSchema.parse(req.params)
+    
+    res.json({
+        id,
+        firstName: "Max"
+    }).send()
 });
 
 // Start the server
